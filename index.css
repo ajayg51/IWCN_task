@@ -20,14 +20,14 @@ body {
 }
 
 .header-content {
-    width: 28vw;
+    width: 30vw;
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-.id {
+#id {
     width: 3vw;
     height: auto;
     display: flex;
@@ -88,6 +88,10 @@ body {
     align-items: center;
     justify-content: center;
     border-right: 1px solid black;
+}
+
+.G17{
+    background-color: red;
 }
 
 #db-data-btn {
