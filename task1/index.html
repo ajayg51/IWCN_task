@@ -1069,14 +1069,15 @@
       }
     }
 
-    const BuildCell = ({ cellIdx }) => {
+    const BuildCell = ({ cellIdx, isEditable }) => {
       const cellInfo = getCellInfo(cellIdx);
 
       return (
-        <div id={cellInfo.colId} class={cellInfo.cellId} >
+        <div contentEditable={isEditable}
+          onClick={() => console.log(`clicked ${cellIdx}`)}
+          id={cellInfo.colId} class={cellInfo.cellId} >
 
           {cellInfo.content}
-
 
         </div>
       );
@@ -1095,25 +1096,32 @@
               cellIdx="id0"
             />
             <BuildCell
+              isEditable={true}
               cellIdx="A0"
             />
             <BuildCell
+              isEditable={true}
               cellIdx="B0"
             />
             <BuildCell
+              isEditable={true}
               cellIdx="C0"
             />
             <BuildCell
               cellIdx="D0"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E0"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F0"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G0"
+              isEditable={true}
             />
           </div>
 
@@ -1123,24 +1131,31 @@
             />
             <BuildCell
               cellIdx="A1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F1"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G1"
+              isEditable={true}
             />
           </div>
 
@@ -1151,24 +1166,31 @@
             />
             <BuildCell
               cellIdx="A2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F2"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G2"
+              isEditable={true}
             />
           </div>
 
@@ -1181,24 +1203,31 @@
             />
             <BuildCell
               cellIdx="A3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F3"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G3"
+              isEditable={true}
             />
           </div>
 
@@ -1211,24 +1240,31 @@
             />
             <BuildCell
               cellIdx="A4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F4"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G4"
+              isEditable={true}
             />
           </div>
 
@@ -1242,24 +1278,31 @@
             />
             <BuildCell
               cellIdx="A5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F5"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G5"
+              isEditable={true}
             />
           </div>
 
@@ -1271,24 +1314,31 @@
             />
             <BuildCell
               cellIdx="A6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F6"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G6"
+              isEditable={true}
             />
           </div>
 
@@ -1300,24 +1350,31 @@
             />
             <BuildCell
               cellIdx="A7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F7"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G7"
+              isEditable={true}
             />
           </div>
 
@@ -1327,24 +1384,32 @@
             />
             <BuildCell
               cellIdx="A8"
+
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B8"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C8"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D8"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E8"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F8"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G8"
+              isEditable={true}
             />
           </div>
 
@@ -1354,24 +1419,31 @@
             />
             <BuildCell
               cellIdx="A9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F9"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G9"
+              isEditable={true}
             />
           </div>
 
@@ -1382,24 +1454,31 @@
             />
             <BuildCell
               cellIdx="A10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F10"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G10"
+              isEditable={true}
             />
           </div>
 
@@ -1409,24 +1488,31 @@
             />
             <BuildCell
               cellIdx="A11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F11"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G11"
+              isEditable={true}
             />
           </div>
 
@@ -1436,24 +1522,31 @@
             />
             <BuildCell
               cellIdx="A12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F12"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G12"
+              isEditable={true}
             />
           </div>
 
@@ -1463,51 +1556,66 @@
             />
             <BuildCell
               cellIdx="A13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F13"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G13"
+              isEditable={true}
             />
           </div>
 
           <div class="row14">
             <BuildCell
               cellIdx="id14"
+
             />
             <BuildCell
               cellIdx="A14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F14"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G14"
+              isEditable={true}
             />
           </div>
 
@@ -1517,24 +1625,31 @@
             />
             <BuildCell
               cellIdx="A15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F15"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G15"
+              isEditable={true}
             />
           </div>
 
@@ -1544,24 +1659,31 @@
             />
             <BuildCell
               cellIdx="A16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F16"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G16"
+              isEditable={true}
             />
           </div>
 
@@ -1571,24 +1693,31 @@
             />
             <BuildCell
               cellIdx="A17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="B17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="C17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="D17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="E17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="F17"
+              isEditable={true}
             />
             <BuildCell
               cellIdx="G17"
+              isEditable={true}
             />
           </div>
 
@@ -1613,19 +1742,33 @@
     const root = ReactDOM.createRoot(container);
     root.render(<Table />);
 
-    const btn = document.querySelector("#abc");
-
-    btn.addEventListener("click", tap);
-
-    function tap() {
-      console.log("tapped");
-    }
 
   </script>
 
-  <div id="db-data-btn">
-    <button id="abc">Get edited table data as JSON</button>
-  </div>
+  <!-- <script type="text/babel">
+
+    
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<Btn />);
+
+
+    // setTimeout(() => {
+    //   const btn1 = document.getElementById("aaa");
+
+    //   btn1.addEventListener("click", () => {
+    //     console.log("ab tapped")
+    //   });
+
+    // }, 2000)
+
+
+
+  </script> -->
+
+
+
+
 </body>
 
 </html>

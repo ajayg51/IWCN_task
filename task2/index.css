@@ -53,9 +53,9 @@ body {
     margin-right: 5%;
     margin-top: 2vh;
     border-radius: 12px;
-    background-color: white;
+    /* background-color: white; */
 
-    overflow-x: scroll;
+    /* overflow-x: hidden; */
     overflow-y: hidden;
 }
 
@@ -69,11 +69,11 @@ body {
     margin: 2vw;
     border-radius: 12px;
     display: inline-block;
-    background-color: black;
+    background-color: white;
 }
 
 #child-content {
     display: flex;
     justify-content: center;
-    color: white;
+    
 }
