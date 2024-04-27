@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#table {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.header {
+    margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    width: 90vw;
+}
+
+.header-content {
+    width: 28vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.id {
+    width: 3vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+}
+
+.row0,
+.row1,
+.row2,
+.row3,
+.row4,
+.row5,
+.row6,
+.row7,
+.row8,
+.row9,
+.row10,
+.row11,
+.row12,
+.row13,
+.row14,
+.row15,
+.row16,
+.row17 {
+    display: flex;
+    width: 90vw;
+    height: calc(80vh/20);
+    border-top: 1px solid black;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+}
+
+
+.row17 {
+    border-bottom: 3px solid black;
+}
+
+#A
+{
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+}
+
+
+#B,
+#C,
+#D,
+#E,
+#F,
+#G {
+    width: calc(75vw/7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+}
+
+#db-data-btn {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: end;
+
+}
+
+#get-db-data-btn {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: teal;
+    color: white;
+}
