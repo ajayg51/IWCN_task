@@ -34,6 +34,13 @@
 
 <body>
   <div id="root"></div>
+  
+  <div id="edited-json-data">
+    <p>Edited data in json format</p>
+    <pre id="json-data"></pre>
+  </div>
+
+
 
   <script defer type="text/babel">
 
@@ -1069,12 +1076,57 @@
       }
     }
 
+
+
+    const cellData = [
+
+    ]
+
     const BuildCell = ({ cellIdx, isEditable }) => {
       const cellInfo = getCellInfo(cellIdx);
 
+
+      const onTextChange = (event) => {
+
+        const value = event.currentTarget.textContent;
+
+        const newCellData = {
+          cellId: cellIdx,
+          content: value
+        }
+
+        const updatedList = [];
+
+        cellData.forEach(item => {
+          if (item.cellId !== cellIdx) {
+            updatedList.push(item);
+          }
+
+        })
+
+        cellData.length = 0;
+
+        updatedList.push({
+          cellId: cellIdx,
+          content: value
+        })
+
+        updatedList.forEach(item => {
+          cellData.push(item);
+        })
+
+        console.log(cellData);
+
+      }
+
       return (
         <div contentEditable={isEditable}
-          onClick={() => console.log(`clicked ${cellIdx}`)}
+
+          onInput={onTextChange}
+          onClick={
+            () => console.log(`clicked ${cellIdx}`)
+          }
+
           id={cellInfo.colId} class={cellInfo.cellId} >
 
           {cellInfo.content}
@@ -1083,651 +1135,496 @@
       );
     }
 
+    const Row0 = () => {
+      const cellIdList = [
+        "A0", "B0", "C0", "D0", "E0", "F0", "G0",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row0">
+          <BuildCell cellIdx="id0" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+    const Row1 = () => {
+      const cellIdList = [
+        "A1", "B1", "C1", "D1", "E1", "F1", "G1",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row1">
+          <BuildCell cellIdx="id1" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row2 = () => {
+      const cellIdList = [
+        "A2", "B2", "C2", "D2", "E2", "F2", "G2",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row2">
+          <BuildCell cellIdx="id2" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row3 = () => {
+      const cellIdList = [
+        "A3", "B3", "C3", "D3", "E3", "F3", "G3",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row3">
+          <BuildCell cellIdx="id3" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row4 = () => {
+      const cellIdList = [
+        "A4", "B4", "C4", "D4", "E4", "F4", "G4",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row4">
+          <BuildCell cellIdx="id4" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row5 = () => {
+      const cellIdList = [
+        "A5", "B5", "C5", "D5", "E5", "F5", "G5",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row5">
+          <BuildCell cellIdx="id5" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row6 = () => {
+      const cellIdList = [
+        "A6", "B6", "C6", "D6", "E6", "F6", "G6",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row6">
+          <BuildCell cellIdx="id6" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row7 = () => {
+      const cellIdList = [
+        "A7", "B7", "C7", "D7", "E7", "F7", "G7",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row7">
+          <BuildCell cellIdx="id7" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row8 = () => {
+      const cellIdList = [
+        "A8", "B8", "C8", "D8", "E8", "F8", "G8",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row8">
+          <BuildCell cellIdx="id8" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row9 = () => {
+      const cellIdList = [
+        "A9", "B9", "C9", "D9", "E9", "F9", "G9",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row9">
+          <BuildCell cellIdx="id9" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row10 = () => {
+      const cellIdList = [
+        "A10", "B10", "C10", "D10", "E10", "F10", "G10",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row10">
+          <BuildCell cellIdx="id10" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row11 = () => {
+      const cellIdList = [
+        "A11", "B11", "C11", "D11", "E11", "F11", "G11",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row11">
+          <BuildCell cellIdx="id11" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row12 = () => {
+      const cellIdList = [
+        "A12", "B12", "C12", "D12", "E12", "F12", "G12",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row12">
+          <BuildCell cellIdx="id12" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row13 = () => {
+      const cellIdList = [
+        "A13", "B13", "C13", "D13", "E13", "F13", "G13",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row13">
+          <BuildCell cellIdx="id13" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row14 = () => {
+      const cellIdList = [
+        "A14", "B14", "C14", "D14", "E14", "F14", "G14",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row14">
+          <BuildCell cellIdx="id14" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+    const Row15 = () => {
+      const cellIdList = [
+        "A15", "B15", "C15", "D15", "E15", "F15", "G15",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row15">
+          <BuildCell cellIdx="id15" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row16 = () => {
+      const cellIdList = [
+        "A16", "B16", "C16", "D16", "E16", "F16", "G16",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row16">
+          <BuildCell cellIdx="id16" />
+          {divChildList}
+        </div>
+      </>
+    }
+
+
+
+    const Row17 = () => {
+      const cellIdList = [
+        "A17", "B17", "C17", "D17", "E17", "F17", "G17",
+      ];
+
+      const divChildList = [];
+
+      for (var item in cellIdList) {
+        divChildList.push(
+          <BuildCell key={cellIdList[item]}
+            isEditable={true}
+            cellIdx={cellIdList[item]}
+          />)
+      }
+
+      return <>
+        <div class="row17">
+          <BuildCell cellIdx="id17" />
+          {divChildList}
+        </div>
+      </>
+    }
 
     const Table = () => {
+
+      const GetJsonDataBtn = () => {
+
+        const onBtnClick = () => {
+
+          const jsonPreTag = document.getElementById("json-data");
+          jsonPreTag.textContent = JSON.stringify(cellData, undefined, 2);
+
+          console.log("data");
+          console.log(cellData);
+        }
+
+        return <div id="db-data-btn" >
+          <button id="get-db-data-btn"
+            onClick={onBtnClick}
+          >Get edited table data as JSON</button>
+        </div>
+
+      }
+
       return <>
 
         <Header />
 
         <div id="table">
 
-          <div class="row0">
-            <BuildCell
-              cellIdx="id0"
-            />
-            <BuildCell
-              isEditable={true}
-              cellIdx="A0"
-            />
-            <BuildCell
-              isEditable={true}
-              cellIdx="B0"
-            />
-            <BuildCell
-              isEditable={true}
-              cellIdx="C0"
-            />
-            <BuildCell
-              cellIdx="D0"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E0"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F0"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G0"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row1">
-            <BuildCell
-              cellIdx="id1"
-            />
-            <BuildCell
-              cellIdx="A1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F1"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G1"
-              isEditable={true}
-            />
-          </div>
-
-
-          <div class="row2">
-            <BuildCell
-              cellIdx="id2"
-            />
-            <BuildCell
-              cellIdx="A2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F2"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G2"
-              isEditable={true}
-            />
-          </div>
+          <Row0 />
+          <Row1 />
+          <Row2 />
+          <Row3 />
+          <Row4 />
+          <Row5 />
+          <Row6 />
+          <Row7 />
+          <Row8 />
+          <Row9 />
+          <Row10 />
+          <Row11 />
+          <Row12 />
+          <Row13 />
+          <Row14 />
+          <Row15 />
+          <Row16 />
+          <Row17 />
 
 
 
 
-          <div class="row3">
-            <BuildCell
-              cellIdx="id3"
-            />
-            <BuildCell
-              cellIdx="A3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F3"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G3"
-              isEditable={true}
-            />
-          </div>
-
-
-
-
-          <div class="row4">
-            <BuildCell
-              cellIdx="id4"
-            />
-            <BuildCell
-              cellIdx="A4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F4"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G4"
-              isEditable={true}
-            />
-          </div>
-
-
-
-
-
-          <div class="row5">
-            <BuildCell
-              cellIdx="id5"
-            />
-            <BuildCell
-              cellIdx="A5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F5"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G5"
-              isEditable={true}
-            />
-          </div>
-
-
-
-          <div class="row6">
-            <BuildCell
-              cellIdx="id6"
-            />
-            <BuildCell
-              cellIdx="A6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F6"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G6"
-              isEditable={true}
-            />
-          </div>
-
-
-
-          <div class="row7">
-            <BuildCell
-              cellIdx="id7"
-            />
-            <BuildCell
-              cellIdx="A7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F7"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G7"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row8">
-            <BuildCell
-              cellIdx="id8"
-            />
-            <BuildCell
-              cellIdx="A8"
-
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B8"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C8"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D8"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E8"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F8"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G8"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row9">
-            <BuildCell
-              cellIdx="id9"
-            />
-            <BuildCell
-              cellIdx="A9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F9"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G9"
-              isEditable={true}
-            />
-          </div>
-
-
-          <div class="row10">
-            <BuildCell
-              cellIdx="id10"
-            />
-            <BuildCell
-              cellIdx="A10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F10"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G10"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row11">
-            <BuildCell
-              cellIdx="id11"
-            />
-            <BuildCell
-              cellIdx="A11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F11"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G11"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row12">
-            <BuildCell
-              cellIdx="id12"
-            />
-            <BuildCell
-              cellIdx="A12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F12"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G12"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row13">
-            <BuildCell
-              cellIdx="id13"
-            />
-            <BuildCell
-              cellIdx="A13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F13"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G13"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row14">
-            <BuildCell
-              cellIdx="id14"
-
-            />
-            <BuildCell
-              cellIdx="A14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F14"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G14"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row15">
-            <BuildCell
-              cellIdx="id15"
-            />
-            <BuildCell
-              cellIdx="A15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F15"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G15"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row16">
-            <BuildCell
-              cellIdx="id16"
-            />
-            <BuildCell
-              cellIdx="A16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F16"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G16"
-              isEditable={true}
-            />
-          </div>
-
-          <div class="row17">
-            <BuildCell
-              cellIdx="id17"
-            />
-            <BuildCell
-              cellIdx="A17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="B17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="C17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="D17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="E17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="F17"
-              isEditable={true}
-            />
-            <BuildCell
-              cellIdx="G17"
-              isEditable={true}
-            />
-          </div>
-
-
-
-          <div id="db-data-btn" >
-            <button id="get-db-data-btn"
-            >Get edited table data as JSON</button>
-          </div>
-
+          <GetJsonDataBtn />
 
         </div>
 
@@ -1738,33 +1635,14 @@
 
     }
 
+
+
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
     root.render(<Table />);
 
 
   </script>
-
-  <!-- <script type="text/babel">
-
-    
-    const container = document.getElementById('root');
-    const root = ReactDOM.createRoot(container);
-    root.render(<Btn />);
-
-
-    // setTimeout(() => {
-    //   const btn1 = document.getElementById("aaa");
-
-    //   btn1.addEventListener("click", () => {
-    //     console.log("ab tapped")
-    //   });
-
-    // }, 2000)
-
-
-
-  </script> -->
 
 
 

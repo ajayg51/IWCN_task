@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: wheat;
 }
 
 #table {
@@ -90,9 +91,6 @@ body {
     border-right: 1px solid black;
 }
 
-.G17{
-    background-color: red;
-}
 
 #db-data-btn {
     margin-top: 2rem;
@@ -106,4 +104,9 @@ body {
     border-radius: 12px;
     background-color: teal;
     color: white;
+}
+
+#edited-json-data{
+    margin-left: 10%;
+    margin-right: 10%;
 }
