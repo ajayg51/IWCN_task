@@ -103,10 +103,14 @@ body {
     padding: 12px;
     border-radius: 12px;
     background-color: teal;
+    cursor: pointer;
     color: white;
 }
 
-#edited-json-data{
-    margin-left: 10%;
-    margin-right: 10%;
+#edited-json-data-div{
+    margin: 5%;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: aquamarine;
 }

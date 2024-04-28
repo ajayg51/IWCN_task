@@ -120,6 +120,13 @@
 
     const addNoteToLocalStorage = () => {
       console.log("post-note api is being called");
+
+      const curTimestamp = new Date().toLocaleString(
+        "en-Us",
+        { timeZone: 'Asia/Kolkata' }
+      );
+
+
       fetch(
         'http://localhost:3000/post-note',
         {
@@ -130,7 +137,8 @@
 
           body: JSON.stringify({
             "note_title": noteTitle,
-            "note_desc": noteDesc
+            "note_desc": noteDesc,
+            "note_timestamp": curTimestamp
           })
         }).then(response => {
           if (!response.ok) {
@@ -252,6 +260,14 @@
           <div id="note-desc">
             <p>
               {note.note_desc}
+
+            </p>
+
+          </div>
+
+          <div id="note-timestamp">
+            <p>
+              {note.note_timestamp}
 
             </p>
 

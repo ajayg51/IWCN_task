@@ -44,7 +44,8 @@ app.get("/get-notes", (req, res) => {
             return {
                 id: item.id,
                 note_title: item.note_title,
-                note_desc: item.note_desc
+                note_desc: item.note_desc,
+                note_timestamp: item.note_timestamp,
             }
         });
 
@@ -64,10 +65,15 @@ app.post("/post-note", jsonParser, (req, res) => {
     const noteId = 0;
     const noteTitle = req.body["note_title"]
     const noteDesc = req.body["note_desc"]
+    const noteTimestamp = req.body["note_timestamp"]
+
     console.log(noteTitle);
     console.log(noteDesc);
+    console.log(noteTimestamp)
 
-    const query = `INSERT INTO Notes(id,note_title,note_desc) VALUES(0,"${noteTitle}","${noteDesc}")`
+    const query = `INSERT INTO Notes(id,note_title,note_desc,note_timestamp)
+    VALUES(0,"${noteTitle}","${noteDesc}","${noteTimestamp}")`
+
     connection.query(query);
     res.send({
         msg: "Successfully added data in db"

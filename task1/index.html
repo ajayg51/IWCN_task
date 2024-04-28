@@ -35,7 +35,7 @@
 <body>
   <div id="root"></div>
   
-  <div id="edited-json-data">
+  <div id="edited-json-data-div" style="display: none;">
     <p>Edited data in json format</p>
     <pre id="json-data"></pre>
   </div>
@@ -1580,10 +1580,14 @@
       const GetJsonDataBtn = () => {
 
         const onBtnClick = () => {
+          const jsonDataDiv = document.getElementById("edited-json-data-div");
+
 
           const jsonPreTag = document.getElementById("json-data");
           jsonPreTag.textContent = JSON.stringify(cellData, undefined, 2);
 
+          jsonDataDiv.style.display  = "block";
+          
           console.log("data");
           console.log(cellData);
         }
