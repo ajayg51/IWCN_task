@@ -46,30 +46,65 @@
   </script>
 
   <script defer type="text/babel">
-    const btn = document.getElementById("btn");
 
-    const postDataToDB = () => {
+
+    let noteTitle = ""
+    let noteDesc = ""
+
+    let dbNoteList = [];
+
+    const getDbNotes = async () => {
+      console.log("get-notes api is being called");
+      await fetch("http://localhost:3000/get-notes",
+        {
+          method: "GET",
+
+        }).then(response => response.json())
+        .then(data => {
+          dbNoteList = data;
+          console.log(dbNoteList);
+
+        }).catch(error => {
+          console.log("Error", error)
+        })
+    }
+
+    // getting dbNotes when page is loaded
+    setTimeout(getDbNotes, 0);
+
+    const addNoteToLocalStorage = () => {
+      console.log("post-note api is being called");
       fetch(
-        'http://localhost:3000/post-data',
+        'http://localhost:3000/post-note',
         {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
           },
 
-          body: {
-            "Post": "phonenumber"
+          body: JSON.stringify({
+            "note_title": noteTitle,
+            "note_desc": noteDesc
+          })
+        }).then(response => {
+          if (!response.ok) {
+            console.log("Status code", response.status)
+            return;
           }
-        }
-
-      )
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('result').textContent = `Result: ${data.result}`;
+          return response.json();
+        }).then(data => {
+          console.log("data")
+          console.log(data)
+          getDbNotes();
+          const modalDiv = document.getElementById("modal");
+          modalDiv.innerHTML = "";
+          console.log("Closed modal");
         })
         .catch(error => {
           console.error('Error:', error);
         });
+
+
     }
 
 
@@ -80,21 +115,17 @@
       const onModalContainerTap = () => {
         const modalDiv = document.getElementById("modal");
         modalDiv.innerHTML = "";
-        console.log("Modal container tapped");
+        console.log("Closed modal");
 
       }
 
-      let noteTitle = ""
-      let noteDesc = ""
 
-      const addNoteToLocalStorage = () => {
+      // const addNoteToLocalStorage = () => {
 
-        console.log("title", noteTitle)
-        console.log("desc", noteDesc)
+      //   console.log("title", noteTitle)
+      //   console.log("desc", noteDesc)
 
-        // localStorage.setItem("note_title", "noteTitle");
-        // localStorage.setItem("note_title", "noteTitle");
-      }
+      // }
 
       const onNoteTitleChange = (event) => {
         noteTitle = event.currentTarget.value;
@@ -157,11 +188,16 @@
         readOnly="readOnly"
         onClick={onInputTap}
         placeholder="Take a note..." />
-
     }
-    // <img src="assets/add_note.jpg" id="add-note"></img>
 
+    const Note = ({ note }) => {
+      return <div id="child">
+        <div id="child-content">
+          {note.note_title}
+        </div>
 
+      </div>
+    }
 
 
 
@@ -180,42 +216,12 @@
 
         <div id="notes-container">
           <div id="children">
-            <div id="child">
-              <div id="child-content">
-                1
-              </div>
+            {
+              dbNoteList.map((note, index) => {
+                return <Note key={index} note={note} />
+              })
+            }
 
-            </div>
-            <div id="child">
-              <div id="child-content">
-                2
-              </div>
-
-            </div>
-            <div id="child">
-              <div id="child-content">
-                3
-              </div>
-
-            </div>
-            <div id="child">
-              <div id="child-content">
-                4
-              </div>
-
-            </div>
-            <div id="child">
-              <div id="child-content">
-                5
-              </div>
-
-            </div>
-            <div id="child">
-              <div id="child-content">
-                6
-              </div>
-
-            </div>
 
 
           </div>
@@ -227,12 +233,17 @@
       </>
     }
 
-
-
     const rootDiv = document.getElementById("root");
     const root = ReactDOM.createRoot(rootDiv);
-    root.render(<NotesApp />)
+    root.render(<p>Loading...</p>)
 
+    setTimeout(() => {
+
+      const rootDiv = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootDiv);
+      root.render(<NotesApp />)
+
+    }, 2000);
 
 
   </script>
