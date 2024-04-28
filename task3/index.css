@@ -5,6 +5,19 @@ body {
     background-color: rgba(27, 120, 120, 0.55);
 }
 
+#info{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#response-headers, 
+#response-headers-json,
+#response-body,
+#response-body-json{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
 #response{
     display: block;
     margin-left: 20vw;

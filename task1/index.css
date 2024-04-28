@@ -100,6 +100,7 @@ body {
 }
 
 #get-db-data-btn {
+    margin-bottom: 3%;
     padding: 12px;
     border-radius: 12px;
     background-color: rgba(27, 120, 120, 0.55);
@@ -117,5 +118,10 @@ body {
 
 #mobile-screen-info{
     font-size: 3rem;
+    font-weight: 800;
+}
+
+#info{
+    font-size: 2rem;
     font-weight: 800;
 }
