@@ -74,3 +74,26 @@ app.post("/post-note", jsonParser, (req, res) => {
     });
 })
 
+
+app.delete("/delete-note", jsonParser, (req, res) => {
+    console.log("delete-api called")
+    console.log(req.body);
+    const noteId = req.body["id"]
+    console.log(noteId);
+
+    const query = `DELETE FROM Notes where id=${noteId}`
+    connection.query(query, (err) => {
+        if (err) {
+            console.log("delete - api Error", err);
+            res.send({
+                msg: "Something went wrong!"
+            });
+            return;
+        }
+        res.send({
+            msg: "Deleted note successfully"
+        });
+    });
+
+
+})
