@@ -114,3 +114,8 @@ body {
     border-radius: 12px;
     background-color: aquamarine;
 }
+
+#mobile-screen-info{
+    font-size: 3rem;
+    font-weight: 800;
+}

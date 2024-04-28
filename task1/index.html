@@ -34,7 +34,7 @@
 
 <body>
   <div id="root"></div>
-  
+
   <div id="edited-json-data-div" style="display: none;">
     <p>Edited data in json format</p>
     <pre id="json-data"></pre>
@@ -1586,8 +1586,8 @@
           const jsonPreTag = document.getElementById("json-data");
           jsonPreTag.textContent = JSON.stringify(cellData, undefined, 2);
 
-          jsonDataDiv.style.display  = "block";
-          
+          jsonDataDiv.style.display = "block";
+
           console.log("data");
           console.log(cellData);
         }
@@ -1643,7 +1643,40 @@
 
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
-    root.render(<Table />);
+
+
+
+    const observer = new ResizeObserver(
+      entries => {
+        for (const entry of entries) {
+          const newWidth = entry.contentRect.width;
+
+          // console.log('The screen width has changed to ' + newWidth);
+          // console.log('valu : ' + (newWidth < 1200));
+
+          if (newWidth < 1200) {
+
+            root.render(
+              <p id="mobile-screen-info">
+                Please use a bigger screen.
+              </p>
+            );
+
+          } else {
+
+            // use setTimeout in case js not working on DOM element
+            // setTimeout(() => {
+
+            // }, 2000);
+
+            root.render(<Table />);
+
+          }
+
+
+        }
+      });
+    observer.observe(document.body);
 
 
   </script>

@@ -2,19 +2,17 @@ body {
     margin: 0;
     padding: 0;
 
-    background-color: teal;
+    background-color: rgba(27, 120, 120, 0.55);
 }
 
 #nav-bar {
     width: 100%;
     height: 5%;
     color: white;
-    display: flex;
     font-size: 2rem;
     font-weight: 800;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    justify-content: center;
     background-color: black;
 }
 
@@ -65,13 +63,14 @@ body {
 #children {
     white-space: nowrap;
 
-    #empty-note-id{
+    #empty-note-id {
         width: 50vw;
         height: 40vh;
+        border-radius: 12px;
         /* background-color: red; */
     }
 
-    #empty-note-figcaption{
+    #empty-note-figcaption {
 
         display: flex;
         justify-content: center;
@@ -95,45 +94,62 @@ body {
     /* display: flex;
     justify-content: center; */
 
-    #note-title{
+    #note-title {
         margin: 10px;
         font-size: 3rem;
         font-weight: 800;
         overflow: hidden;
         text-overflow: ellipsis;
+        background-color: aliceblue;
+        border-radius: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    #note-desc{
+    #note-desc {
         font-size: 1rem;
-        background-color:aliceblue;
+        background-color: aliceblue;
+        border-radius: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
         margin: 10px;
         font-weight: 600;
         height: 30vh;
         word-wrap: break-word;
         white-space: pre-wrap;
-        
+
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    #note-timestamp{
+    #note-timestamp {
         font-size: 2rem;
         font-weight: 700;
         margin: 10px;
+
+       
     }
 
-    #delete-icon{
+    #delete-icon {
         /* background-color: red; */
         cursor: pointer;
         display: flex;
         justify-content: end;
-        
+
     }
 
-    #delete-icon-height{
+    #delete-icon-height {
         width: 40px;
         height: 40px;
     }
+}
+
+#note-created-at {
+    font-size: 20px;
+}
+
+#note-timestamp>p {
+    margin: 0;
 }
 
 .modal-container {
@@ -159,7 +175,7 @@ body {
     height: 70vh;
     background-color: gainsboro;
     border-radius: 12px;
-    border: 1px solid red;
+    border: 1px solid grey;
     z-index: 3;
     position: absolute;
 
@@ -202,7 +218,7 @@ body {
                 height: 5vh;
                 border-radius: 12px;
                 text-align: center;
-                background-color: pink;
+                background-color: aliceblue;
             }
 
 
@@ -212,11 +228,13 @@ body {
             margin-left: 10px;
             padding: 10px;
             border-radius: 12px;
+            background-color: aliceblue;
         }
 
         #modal-add-note-btn {
             display: flex;
             justify-content: center;
+
             #add-note-btn {
                 width: 40%;
                 margin: 10px;
@@ -225,7 +243,7 @@ body {
                 font-size: 2rem;
                 font-weight: 700;
                 justify-content: center;
-                background-color: grey;
+                background-color: rgb(5, 131, 242);
                 border-radius: 12px;
                 border: 2px solid black;
             }
@@ -244,9 +262,9 @@ textarea {
 
 }
 
-#loader{
+#loader {
     border: 10px solid grey;
-    border-right:  10px solid brown;
+    border-right: 10px solid rgba(27, 120, 120, 0.55);
     margin-left: 50vw;
     margin-top: 30vh;
     border-radius: 50%;
@@ -256,12 +274,18 @@ textarea {
 }
 
 @keyframes spin {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(350deg);
     }
-    
+
 }
 
+
+#mobile-screen-info{
+    font-size: 2rem;
+    font-weight: 800;
+}

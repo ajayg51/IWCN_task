@@ -62,7 +62,6 @@ app.get("/get-notes", (req, res) => {
 app.post("/post-note", jsonParser, (req, res) => {
     console.log("post-api called")
     console.log(req.body);
-    const noteId = 0;
     const noteTitle = req.body["note_title"]
     const noteDesc = req.body["note_desc"]
     const noteTimestamp = req.body["note_timestamp"]
@@ -71,8 +70,8 @@ app.post("/post-note", jsonParser, (req, res) => {
     console.log(noteDesc);
     console.log(noteTimestamp)
 
-    const query = `INSERT INTO Notes(id,note_title,note_desc,note_timestamp)
-    VALUES(0,"${noteTitle}","${noteDesc}","${noteTimestamp}")`
+    const query = `INSERT INTO Notes(note_title,note_desc,note_timestamp)
+    VALUES("${noteTitle}","${noteDesc}","${noteTimestamp}")`
 
     connection.query(query);
     res.send({

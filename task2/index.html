@@ -39,12 +39,15 @@
   <div id="modal"></div>
   <div id="root"></div>
 
-  <script defer type="text/javascript">
-
-
-  </script>
 
   <script defer type="text/babel">
+
+
+    const rootDiv = document.getElementById("root");
+    const root = ReactDOM.createRoot(rootDiv);
+
+
+
 
 
     let noteTitle = ""
@@ -52,9 +55,6 @@
 
     let dbNoteList = [];
 
-
-    const rootDiv = document.getElementById("root");
-    const root = ReactDOM.createRoot(rootDiv);
 
 
     const Loader = () => {
@@ -266,7 +266,9 @@
           </div>
 
           <div id="note-timestamp">
-            <p>
+            <p id="note-created-at">Created at</p>
+            <p >
+
               {note.note_timestamp}
 
             </p>
@@ -323,7 +325,7 @@
 
       return <>
         <div id="nav-bar">
-          NotesApp
+          Notes
         </div>
         <div id="content">
           <TakeNote />
@@ -341,9 +343,38 @@
       </>
     }
 
-    setTimeout(() => {
-      root.render(<NotesApp />)
-    }, 2000);
+
+
+    const observer = new ResizeObserver(
+      entries => {
+        for (const entry of entries) {
+          const newWidth = entry.contentRect.width;
+
+          // console.log('The screen width has changed to ' + newWidth);
+          // console.log('valu : ' + (newWidth < 1200));
+
+          if (newWidth < 1200) {
+
+            root.render(
+              <p id="mobile-screen-info">
+                  Please use a bigger screen.
+              </p>
+            );
+
+          } else {
+            setTimeout(() => {
+              root.render(<NotesApp />)
+            }, 2000);
+          }
+
+
+        }
+      });
+    observer.observe(document.body);
+
+
+
+
 
 
   </script>
