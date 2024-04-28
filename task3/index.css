@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background-color: rgba(27, 120, 120, 0.55);
+}
+
+#response{
+    display: block;
+    margin-left: 20vw;
+    margin-top: 10vh;
+}
+
+#response-headers {
+    display: none;
+
+}
+
+#response-body {
+    display: none;
+    margin: 20px;
+}
+
+#call-post-api-btn {
+    margin-left: 20vw;
+    margin-top: 10vh;
+    width: 100px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: rgba(27, 120, 120, 0.55);
+}

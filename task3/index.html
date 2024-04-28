@@ -31,19 +31,22 @@
 </head>
 
 <body>
+    <div id="response">
+        <div id="response-headers">
+            Response headers
+        </div>
+        <pre id="response-headers-json"></pre>
 
-    <div id="response-headers" style="display: none;">
-        Response headers
+
+        <div id="response-body">
+            Response body
+        </div>
+        <pre id="response-body-json"></pre>
+
+
     </div>
-    <pre id="response-headers-json"></pre>
 
-
-    <div id="response-body" style="display: none; margin-top: 20px; margin-bottom: 20px;">
-        Response body
-    </div>
-    <pre id="response-body-json"></pre>
-
-    <button style="margin-top: 50px;" id="post-api" onClick="callApi()"> Call post api</button>
+    <button id="call-post-api-btn" id="post-api" onClick="callApi()"> Call post api</button>
 
     <script type="text/javascript">
         const btn = document.getElementById("post-api");
@@ -62,9 +65,9 @@
                     console.log("status code ", response.status)
                     return;
                 } else {
-                    
+
                     console.log("All ok")
-                    
+
                     const responseHeadersDiv = document.getElementById("response-headers")
                     const responseHeadersPreTag = document.getElementById("response-headers-json")
 
@@ -78,7 +81,7 @@
                             [key]: value
                         })
                     }
-                     responseHeadersPreTag.textContent = JSON.stringify(jsonDataList, undefined, 2);
+                    responseHeadersPreTag.textContent = JSON.stringify(jsonDataList, undefined, 2);
 
                     return response.json();
                 }

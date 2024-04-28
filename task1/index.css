@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: wheat;
+    background-color: rgba(27, 120, 120, 0.55);
 }
 
 #table {
@@ -102,7 +102,7 @@ body {
 #get-db-data-btn {
     padding: 12px;
     border-radius: 12px;
-    background-color: teal;
+    background-color: rgba(27, 120, 120, 0.55);
     cursor: pointer;
     color: white;
 }
@@ -112,7 +112,7 @@ body {
     font-size: 2rem;
     padding: 10px;
     border-radius: 12px;
-    background-color: aquamarine;
+    background-color: rgba(27, 120, 120, 0.55);
 }
 
 #mobile-screen-info{
