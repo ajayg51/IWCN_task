@@ -5,14 +5,18 @@
   <meta charset="UTF-8" />
   <title>Task - 2</title>
 
-  <!-- Don't use this in production: -->
+  <!-- BABEL Don't use this in production: -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <!-- reactJS -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin>
   </script>
 
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin>
   </script>
+
+  <!-- mysql -->
+  <script src="https://cdn.jsdelivr.net/npm/mysql@2.18.1/index.min.js"></script>
 
 
   <!--
@@ -29,10 +33,10 @@
 </head>
 
 <body>
-  <!-- <button id="btn" onclick="checkDB()">Check DB</button>
+  <button id="btn" onclick="checkDB()">Check DB</button>
   <p>
   <p></p>
-  </p> -->
+  </p>
   <div id="modal"></div>
   <div id="root"></div>
 
@@ -45,6 +49,14 @@
     const checkDB = () => {
       console.log("Check db");
 
+      const mysql = MySqlDatabaseConnection.MySqlDatabaseConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'ajay_db'
+      })
+
+      mysql.connect()
     }
 
 
@@ -56,9 +68,26 @@
 
       }
 
-      const addNoteToLocalStorage = ()=>{
-        localStorage.setItem("note_title","noteTitle");
-        localStorage.setItem("note_title","noteTitle");
+      let noteTitle = ""
+      let noteDesc = ""
+
+      const addNoteToLocalStorage = () => {
+
+        console.log("title", noteTitle)
+        console.log("desc", noteDesc)
+
+        // localStorage.setItem("note_title", "noteTitle");
+        // localStorage.setItem("note_title", "noteTitle");
+      }
+
+      const onNoteTitleChange = (event) => {
+        noteTitle = event.currentTarget.value;
+        console.log("Note title", noteTitle);
+      }
+
+      const onNoteDescChange = (event) => {
+        noteDesc = event.currentTarget.value;
+        console.log("Note Desc", noteDesc);
       }
 
       return <>
@@ -68,7 +97,10 @@
           <div className="modal-content">
             <div id="modal-header">
 
-              <input id="modal-note-title" placeholder="Enter note title"></input>
+              <input onChange={onNoteTitleChange}
+
+                id="modal-note-title"
+                placeholder="Enter note title"></input>
 
               <img src="assets/close_icon.png" id="close-modal" onClick={onModalContainerTap}>
 
@@ -77,6 +109,7 @@
             </div>
 
             <textarea id="modal-note-description"
+              onChange={onNoteDescChange}
               rows="20" cols="80"
               placeholder="Enter note description">
 
@@ -85,10 +118,7 @@
             <div id="modal-add-note-btn">
 
               <div id="add-note-btn" onClick={addNoteToLocalStorage}>
-
                 Add note
-
-
               </div>
             </div>
 
