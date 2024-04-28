@@ -2,40 +2,194 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Task - 2</title>
+  <meta charset="UTF-8" />
+  <title>Task - 2</title>
 
-    <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin>
-    </script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin>
+  </script>
 
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin>
-    </script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin>
+  </script>
 
 
-    <!--
+  <!--
     Note: this page is a great way to try React but it's not suitable for production.
     It slowly compiles JSX with Babel in the browser and uses a large development build of React.
   -->
 
-    <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css">
 
-    <script defer type="text/babel" src="index.js">
-    </script>
 
-<!-- 
-  <script defer type="text/babel" src="action.js">
-  </script> 
--->
 
 
 
 </head>
 
 <body>
-    <div id="root"></div>
+  <!-- <button id="btn" onclick="checkDB()">Check DB</button>
+  <p>
+  <p></p>
+  </p> -->
+  <div id="modal"></div>
+  <div id="root"></div>
+
+
+  <script defer type="text/babel">
+    const btn = document.getElementById("btn");
+
+
+
+    const checkDB = () => {
+      console.log("Check db");
+
+    }
+
+
+    const Modal = () => {
+      const onModalContainerTap = () => {
+        const modalDiv = document.getElementById("modal");
+        modalDiv.innerHTML = "";
+        console.log("Modal container tapped");
+
+      }
+
+      const addNoteToLocalStorage = ()=>{
+        localStorage.setItem("note_title","noteTitle");
+        localStorage.setItem("note_title","noteTitle");
+      }
+
+      return <>
+        <div className="modal-container" onClick={onModalContainerTap}>
+        </div>
+        <div className="modal">
+          <div className="modal-content">
+            <div id="modal-header">
+
+              <input id="modal-note-title" placeholder="Enter note title"></input>
+
+              <img src="assets/close_icon.png" id="close-modal" onClick={onModalContainerTap}>
+
+              </img>
+
+            </div>
+
+            <textarea id="modal-note-description"
+              rows="20" cols="80"
+              placeholder="Enter note description">
+
+            </textarea>
+
+            <div id="modal-add-note-btn">
+
+              <div id="add-note-btn" onClick={addNoteToLocalStorage}>
+
+                Add note
+
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </>
+    }
+
+    const TakeNote = () => {
+
+      const onInputTap = () => {
+        console.log('input tapped');
+        const modalDiv = document.getElementById("modal");
+        const root = ReactDOM.createRoot(modalDiv);
+        root.render(<Modal />)
+      }
+
+      return <input id="input-note"
+        readonly="readonly"
+        onClick={onInputTap}
+        placeholder="Take a note..." />
+
+    }
+    // <img src="assets/add_note.jpg" id="add-note"></img>
+
+
+
+
+
+    const NotesApp = () => {
+
+
+      return <>
+        <div id="nav-bar">
+          NotesApp
+        </div>
+        <div id="content">
+          <TakeNote />
+
+
+        </div>
+
+        <div id="notes-container">
+          <div id="children">
+            <div id="child">
+              <div id="child-content">
+                1
+              </div>
+
+            </div>
+            <div id="child">
+              <div id="child-content">
+                2
+              </div>
+
+            </div>
+            <div id="child">
+              <div id="child-content">
+                3
+              </div>
+
+            </div>
+            <div id="child">
+              <div id="child-content">
+                4
+              </div>
+
+            </div>
+            <div id="child">
+              <div id="child-content">
+                5
+              </div>
+
+            </div>
+            <div id="child">
+              <div id="child-content">
+                6
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+
+      </>
+    }
+
+
+
+    const rootDiv = document.getElementById("root");
+    const root = ReactDOM.createRoot(rootDiv);
+    root.render(<NotesApp />)
+
+
+
+  </script>
 </body>
 
 </html>

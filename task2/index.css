@@ -28,15 +28,18 @@ body {
     margin-top: 5vh;
     width: 40vw;
     height: 10vh;
-    border: 0;
-    outline: none;
+    border-radius: 12px;
     font-size: 2rem;
     font-weight: 700;
+    border: 0;
+    outline: none;
+    text-align: center;
     display: flex;
     justify-content: center;
-    text-align: center;
-    border-radius: 12px;
+    align-items: center;
     background-color: white;
+    cursor: pointer;
+
 }
 
 #add-note {
@@ -75,5 +78,113 @@ body {
 #child-content {
     display: flex;
     justify-content: center;
-    
+
+}
+
+.modal-container {
+    background-color: grey;
+    position: absolute;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.modal {
+    margin-left: 25vw;
+    margin-top: 10vh;
+
+    width: 50vw;
+    height: 70vh;
+    background-color: gainsboro;
+    border-radius: 12px;
+    border: 1px solid red;
+    z-index: 3;
+    position: absolute;
+
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    box-shadow: 10px 10px 5px black;
+
+    ::placeholder {
+        color: black;
+        font-size: 1rem;
+        font-weight: 800;
+
+    }
+
+    .modal-content {
+        font-size: 3rem;
+        font-weight: 800;
+        color: black;
+
+
+        #modal-header {
+            /* background-color: blue; */
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+
+            #close-modal {
+                /* background-color: red; */
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+            }
+
+            #modal-note-title {
+                border: none;
+                outline: none;
+                color: black;
+                width: 60%;
+                height: 5vh;
+                border-radius: 12px;
+                text-align: center;
+                background-color: pink;
+            }
+
+
+        }
+
+        #modal-note-description {
+            margin-left: 10px;
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        #modal-add-note-btn {
+            display: flex;
+            justify-content: center;
+            #add-note-btn {
+                width: 40%;
+                margin: 10px;
+                display: flex;
+                cursor: pointer;
+                font-size: 2rem;
+                font-weight: 700;
+                justify-content: center;
+                background-color: grey;
+                border-radius: 12px;
+                border: 2px solid black;
+            }
+        }
+
+
+    }
+}
+
+textarea {
+
+    border: none;
+    outline: none;
+    resize: none;
+
+
 }
