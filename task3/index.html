@@ -43,7 +43,7 @@
     </div>
     <pre id="response-body-json"></pre>
 
-    <button style="margin-top: 50px;" id="post-api" onClick="callApi()"> Fetch post api</button>
+    <button style="margin-top: 50px;" id="post-api" onClick="callApi()"> Call post api</button>
 
     <script type="text/javascript">
         const btn = document.getElementById("post-api");
@@ -55,43 +55,35 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "Post": "phonenumber"
+                    "phonenumber": "+918090485110"
                 })
             }).then((response) => {
                 if (!response.ok) {
                     console.log("status code ", response.status)
+                    return;
                 } else {
+                    
                     console.log("All ok")
-
+                    
                     const responseHeadersDiv = document.getElementById("response-headers")
                     const responseHeadersPreTag = document.getElementById("response-headers-json")
 
                     responseHeadersDiv.style.display = "block";
-                    const responseHeaderList = [...response.headers];
-                    // console.log(...response.headers)
-                    console.log(responseHeaderList[0])
                     const jsonDataList = [];
 
-                    responseHeaderList.forEach((item) => {
-                        jsonDataList.push(item);
-                    })
-
-                    const jsonData = []
-                    for (let i = 0; i < jsonDataList.length; i++) {
-                        const key = jsonDataList[i][0];
-                        const value = jsonDataList[i][1];
-                        console.log("data",)
-                        jsonData.push({
+                    console.log("loop")
+                    for (let [key, value] of response.headers.entries()) {
+                        console.log(key, value)
+                        jsonDataList.push({
                             [key]: value
                         })
                     }
-
-
-                    responseHeadersPreTag.textContent = JSON.stringify(jsonData, undefined, 2);
+                     responseHeadersPreTag.textContent = JSON.stringify(jsonDataList, undefined, 2);
 
                     return response.json();
                 }
             }).then((data) => {
+                console.log("data", data);
                 const responseBodyDiv = document.getElementById("response-body")
                 const responseBodyPreTag = document.getElementById("response-body-json")
 
