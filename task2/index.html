@@ -33,31 +33,47 @@
 </head>
 
 <body>
-  <button id="btn" onclick="checkDB()">Check DB</button>
+  <button id="btn" onclick="postDataToDB()">Check DB</button>
   <p>
   <p></p>
   </p>
   <div id="modal"></div>
   <div id="root"></div>
 
+  <script defer type="text/javascript">
+
+
+  </script>
 
   <script defer type="text/babel">
     const btn = document.getElementById("btn");
 
+    const postDataToDB = () => {
+      fetch(
+        'http://localhost:3000/post-data',
+        {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+          },
 
+          body: {
+            "Post": "phonenumber"
+          }
+        }
 
-    const checkDB = () => {
-      console.log("Check db");
-
-      const mysql = MySqlDatabaseConnection.MySqlDatabaseConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'root',
-        database: 'ajay_db'
-      })
-
-      mysql.connect()
+      )
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').textContent = `Result: ${data.result}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
+
+
+
 
 
     const Modal = () => {
@@ -138,7 +154,7 @@
       }
 
       return <input id="input-note"
-        readonly="readonly"
+        readOnly="readOnly"
         onClick={onInputTap}
         placeholder="Take a note..." />
 
